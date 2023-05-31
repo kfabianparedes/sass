@@ -1,0 +1,139 @@
+@use "sass:math"
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "src/sass/mixins"
+@import "src/sass/variables"
+
+.swiper-container
+  width: 100%
+  height: auto
+  margin-left: auto
+  margin-right: auto
+  position: unset
+  overflow: hidden
+  list-style: none
+  padding: 0
+  z-index: 1
+
+@include media-breakpoint-down(lg)
+  fp-contentful-slider-product-list
+    .swiper-custom-navigation
+      .swiper-pagination
+        display: flex !important
+        justify-content: center
+        margin-top: 10px
+
+@include media-breakpoint-down(lg)
+  fp-contentful-slider-product-list
+    .swiper-custom-navigation
+      .swiper-pagination-bullet
+        width: 8px
+        height: 8px
+        display: inline-block
+        border-radius: 100%
+        background: #000
+        opacity: .2
+        @include media-breakpoint-down(lg)
+          width: 7px !important
+          height: 7px !important
+
+        &-active
+          background: lb.$vt-palette-secondary !important
+          opacity: 1
+
+.swiper-custom-navigation
+  .swiper-pagination
+    position: relative
+    left: 0
+    bottom: 0 !important
+    right: 0
+    margin: 2px
+    z-index: 1
+  .swiper-pagination-bullet
+    margin: 0 3px
+    background: map.get(lb.$vt-palette-neutral-palette, 40)
+    opacity: inherit
+    &-active
+      background: lb.$vt-palette-secondary
+  .swiper-button-prev,
+  .swiper-button-next
+    position: absolute
+    z-index: 10
+    top: 50%
+    display: block
+    background: lb.$vt-palette-white
+    border: 1px solid map.get(lb.$vt-palette-neutral-palette, 40)
+    border-radius: lb.$vt-borders-border-radius-pill
+    width: 40px
+    height: 40px
+    box-shadow: $box-shadow
+    outline: none
+    &:hover
+      opacity: 0.5
+      box-shadow: none
+
+    &.swiper-button-disabled
+      opacity: 0
+
+    &::after
+      content: ''
+      height: 12px
+      width: 12px
+      position: absolute
+      top: 22px
+      border: 0
+      transform: rotate(45deg) translateX(-50%) translateY(-50%)
+
+  .swiper-button-prev
+    z-index: 2
+    left: -15px
+
+    &::after
+      border-left: math.div($border-width-small, 2) solid map.get(lb.$vt-palette-neutral-palette, 100)
+      border-bottom: 2px solid map.get(lb.$vt-palette-neutral-palette, 100)
+      left: 15px
+
+  .swiper-button-next
+    z-index: 2
+    right: -15px
+
+    &::after
+      border-right: math.div($border-width-small, 2) solid map.get(lb.$vt-palette-neutral-palette, 100)
+      border-top: math.div($border-width-small, 2) solid map.get(lb.$vt-palette-neutral-palette, 100)
+      right: 15px
+
+@include media-fine-hover()
+  .swiper-custom-navigation
+    .swiper-button-prev,
+    .swiper-button-next
+      display: block
+
+  .swiper-custom-pagination
+    .swiper-container
+      .swiper-pagination
+        display: none
+
+.contentful-slider-container
+  .swiper-pagination-bullet
+    margin: 0 4px
+    width: 8px
+    height: 8px
+    display: inline-block
+    border-radius: 100%
+    background: #000
+    opacity: .2
+    @include media-breakpoint-down(lg)
+      width: 7px !important
+      height: 7px !important
+
+    &-active
+      background: lb.$vt-palette-secondary !important
+      opacity: 1
+
+.mother-baby-desktop
+  .swiper-custom-navigation
+    .swiper-pagination-bullet
+      &-active
+        background: lb.$vt-palette-error

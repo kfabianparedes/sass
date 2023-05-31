@@ -1,0 +1,25 @@
+@use 'options.variables';
+@use '../functions/map.functions';
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,     // 4
+  2: $spacer * .5,      // 8
+  3: $spacer * .75,     // 12
+  4: $spacer,           // 16
+  5: $spacer * 1.5,     // 24
+  6: $spacer * 1.75,    // 28
+  7: $spacer * 2,       // 32
+  8: $spacer * 2.5,     // 40
+  9: $spacer * 3,       // 48
+  10: $spacer * 3.5,    // 56
+  11: $spacer * 4,      // 64
+  12: $spacer * 4.5,    // 72
+  13: $spacer * 5,      // 80
+  14: $spacer * 5.5,    // 88
+  15: $spacer * 6,      // 96
+  16: $spacer * 10,     // 160
+) !default;
+
+$negative-spacers: if(options.$enable-negative-margins, map.negativify-map($spacers), null) !default;

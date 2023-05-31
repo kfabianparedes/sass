@@ -1,0 +1,10 @@
+@mixin font-face($name,$src-name, $weight, $style: normal)
+  @font-face
+    font-family: $name
+    font-weight: $weight
+    font-style: $style
+    src: url('/../assets/fonts/#{$src-name}.ttf') format('truetype')
+
+
+@include font-face('VAG-Rounded-Next', 'VAG-Rounded-Next-Regular', 400)
+@include font-face('VAG-Rounded-Next', 'VAG-Rounded-Next-SemiBold', 500)

@@ -1,0 +1,26 @@
+@import "src/sass/mixins"
+
+@import "buttons/variables"
+@import "buttons/mixins"
+@import "buttons/custom"
+
+
+//BUTTONS
+
+/** ($name,  $background,  $color,  $border: $background,  $hover-background: $background,  $hover-color: $color,  $hover-border: $hover-background) */
+
+@include create-button-color('primary', $button-primary, $button-text-primary, $button-primary, $button-dark-primary)
+@include create-button-color('secondary', $button-secondary, $button-text-secondary, $button-secondary, $button-dark-secondary)
+
+@include create-button-color('ghost', $button-ghost, $button-text-ghost, $button-ghost, $button-dark-ghost)
+@include create-button-color('ghost-red', $button-ghost, $button-text-ghost-red, $button-ghost, $button-dark-ghost)
+
+@include create-button-color('outline', $button-outline, $button-text-outline, $button-border-outline, $button-dark-outline, $button-text-outline, $button-border-outline)
+@include create-button-color('icon', $button-icon, $button-text-icon, $button-icon, $button-dark-icon)
+@include create-button-color('disabled', $button-disabled, $button-text-disabled, $button-disabled)
+
+@include create-button-color('picker', $button-picker, $button-text-picker, $button-border-picker, $button-dark-picker, $button-text-picker, $button-border-picker)
+
+//OUTLINE BUTTONS
+// replace with select component
+@include create-button-color('outline-gray', $button-text-primary, $button-text-disabled, $button-text-disabled)

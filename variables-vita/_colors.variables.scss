@@ -1,0 +1,151 @@
+@use "sass:map";
+
+// Color system
+$white: #ffffff !default;
+$black: #000000 !default;
+$gray: #97a5c3 !default;
+$blue: #16a2ff !default;
+$indigo: #888bff !default;
+$purple: #ac69ef !default;
+$pink: #ed64a6 !default;
+$red: #ff7452 !default;
+$orange: #ff7929 !default;
+$yellow: #ffc400 !default;
+$green: #01b258 !default;
+$teal: #29d882 !default;
+$turquoise: #16ded2 !default;
+$cyan: #2fcdff !default;
+
+$blue-palette: (
+  20: #edf8ff,
+  30: #caebff,
+  40: #7cceff,
+  50: $blue,
+  60: #1a8ff1,
+  70: #0b5eb7,
+  80: #074293,
+) !default;
+
+$indigo-palette: (
+  20: #f2f2ff,
+  30: #d9d9ff,
+  40: #b7b9ff,
+  50: $indigo,
+  60: #6c6ff2,
+  70: #4446b7,
+  80: #2b2d93,
+) !default;
+
+$purple-palette: (
+  20: #f9eeff,
+  30: #edd0fd,
+  40: #d8a6fa,
+  50: $purple,
+  60: #a35ef9,
+  70: #6434ac,
+  80: #46218a,
+) !default;
+
+$pink-palette: (
+  20: #fff5f7,
+  30: #fed7e2,
+  40: #f687b3,
+  50: $pink,
+  60: #d53f8c,
+  70: #b83280,
+  80: #702459,
+) !default;
+
+$red-palette: (
+  20: #fff4f1,
+  30: #ffcabd,
+  40: #ff8f73,
+  50: $red,
+  60: #ff5630,
+  70: #de350b,
+  80: #bf2600,
+) !default;
+
+$orange-palette: (
+  20: #fff6e7,
+  30: #ffe1ba,
+  40: #ffbe7e,
+  50: $orange,
+  60: #fa6f1c,
+  70: #db591d,
+  80: #b73d14,
+) !default;
+
+$yellow-palette: (
+  20: #fff8df,
+  30: #fff3c2,
+  40: #ffe380,
+  50: $yellow,
+  60: #ffab00,
+  70: #ff991f,
+  80: #ff8b00,
+) !default;
+
+$green-palette: (
+  20: #fbfbe9,
+  30: #dbefb6,
+  40: #90dc73,
+  50: $green,
+  60: #00995a,
+  70: #008058,
+  80: #006751,
+) !default;
+
+$teal-palette: (
+  20: #e5ffe8,
+  30: #a9fbbb,
+  40: #7df3a2,
+  50: $teal,
+  60: #20c285,
+  70: #149b75,
+  80: #0d7d69,
+) !default;
+
+$turquoise-palette: (
+  20: #e4fef3,
+  30: #b3fce4,
+  40: #70f5d5,
+  50: $turquoise,
+  60: #10b9be,
+  70: #0b8e9f,
+  80: #076780,
+) !default;
+
+$cyan-palette: (
+  20: #e8fffe,
+  30: #bcfdff,
+  40: #82f2ff,
+  50: $cyan,
+  60: #22a1db,
+  70: #177ab7,
+  80: #0e5793,
+) !default;
+
+$gray-palette: (
+  0: $white,
+  10: #fafbfc,
+  20: #f5f6f9,
+  30: #eef0f5,
+  40: #cbd2e1,
+  50: $gray,
+  60: #7d8eb5,
+  70: #6478a6,
+  80: #52658e,
+  90: #435375,
+  100: #2f3a51,
+) !default;
+
+$white-alpha-palette: (
+  0: rgba($white, 0.04),
+  10: rgba($white, 0.08),
+) !default;
+
+$black-alpha-palette: (
+  0: rgba(map.get($gray-palette, 100), 0.04),
+  10: rgba(map.get($gray-palette, 100), 0.08),
+) !default;

@@ -1,0 +1,41 @@
+@use "sass:math"
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+.mat-expansion-panel.responsive-checkout-summary
+  box-shadow: none !important
+  border-radius: 0 !important
+  @include media-breakpoint-down(md)
+    border-top: math.div($border-width-small, 4) solid map.get(lb.$vt-palette-neutral-palette, 40) !important
+    max-height: 85vh !important
+
+  .mat-expansion-indicator
+    align-items: center
+    display: flex
+
+  .mat-expansion-panel-content
+    border-top: math.div($border-width-small, 4) solid map.get(lb.$vt-palette-neutral-palette, 40) !important
+
+  .mat-expansion-panel-body
+    padding-bottom: 0 !important
+
+  .mat-expansion-panel-content
+    @include media-breakpoint-down(md)
+      max-height: 78vh
+      overflow: auto
+      @include scrollbar()
+
+
+.mat-expansion-panel.mat-expansion-static-landing
+  .mat-expansion-panel-body
+    padding: 0
+
+  .mat-expansion-indicator::after,
+  .mat-expansion-panel-header-description
+    color: map.get(lb.$vt-palette-neutral-palette, 100)
+
+
+.mat-expansion-panel.mat-expansion-default
+  .mat-expansion-panel-body
+    padding: 0

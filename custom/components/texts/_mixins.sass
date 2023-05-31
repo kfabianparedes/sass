@@ -1,0 +1,9 @@
+@mixin text($prefix, $map-responsive: $font-size-responsive-map, $map-desktop:$font-size-desktop-map)
+  @each $name, $size in $map-responsive
+    $size-desktop: map-get($map-desktop, $name)
+    $label: if($name == '0', "", "-#{$name}")
+    .#{$prefix}#{$label}
+      font-size: $size !important
+      @content
+      @include media-breakpoint-up(lg)
+        font-size: $size-desktop !important

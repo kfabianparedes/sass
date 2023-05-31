@@ -1,0 +1,62 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "texts/mixins"
+@import "texts/text-tag"
+
+@each $breakpoint in map-keys($grid-breakpoints)
+  @include media-breakpoint-up($breakpoint)
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints)
+
+    //LABEL (one liner)
+    @include text('label#{$infix}')
+      font-style: $font-style-normal !important
+      font-weight: $font-weight-normal !important
+      line-height: $line-height-regular !important
+
+    //LABEL BLACK (one liner)
+    @include text('label-black#{$infix}')
+      font-style: $font-style-normal !important
+      font-weight: $font-weight-bold !important
+      line-height: $line-height-regular !important
+
+    //HEADING
+    @include text('heading#{$infix}')
+      font-style: $font-style-normal !important
+      font-weight: $font-weight-bold !important
+      line-height: $line-height-medium !important
+
+    //TEXT
+    @include text('text#{$infix}')
+      font-style: $font-style-normal !important
+      font-weight: $font-weight-normal !important
+      line-height: $line-height-medium !important
+
+    //PARAGRAPH
+    @include text('paragraph#{$infix}')
+      font-style: $font-style-normal !important
+      font-weight: $font-weight-normal !important
+      line-height: $line-height-large !important
+
+    //TEXT EMPHASIS
+    @include text('text-emphasis#{$infix}')
+      font-style: $font-style-italic !important
+      font-weight: $font-weight-normal !important
+      line-height: $line-height-medium !important
+
+    //PARAGRAPH EMPHASIS
+    @include text('paragraph-emphasis#{$infix}')
+      font-style: $font-style-italic !important
+      font-weight: $font-weight-normal !important
+      line-height: $line-height-large !important
+
+    //TEXT STRIKE
+    @include text('text-strike#{$infix}')
+      color: map.get(lb.$vt-palette-neutral-palette, 60)
+      font-style: $font-style-normal !important
+      font-weight: $font-weight-bold !important
+      line-height: $line-height-regular !important
+      text-decoration-line: line-through !important
+
+

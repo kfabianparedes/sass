@@ -1,0 +1,21 @@
+@use "sass:map"
+@use "palette.variables"
+
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default
+$font-family-base:            Inter, $font-family-monospace !default
+
+$font-letter-spacing: 0.2px !default
+$font-color: map.get(palette.$neutral-palette, 100) !default
+$font-weight-map: (regular: 400, bold: 600) !default
+$font-size-map: ("heading": (1: 28px, 2: 24px, 3: 22px, 4: 20px, 5: 18px, 6: 16px), "body-bold": (1: 14px, 2: 13px, 3: 12px, 4: 10px, 5: 8px), "body": (1: 14px, 2: 13px, 3: 12px, 4: 10px, 5: 8px), "link": (1: 14px, 2: 13px, 3: 12px, 4: 10px, 5: 8px), "market": (1: 12px)) !default
+$font-line-height-map: ("heading": (1: 36px, 2: 34px, 3: 32px, 4: 30px, 5: 28px, 6: 24px), "body-bold": (1: 22px, 2: 20px, 3: 18px, 4: 16px, 5: 14px), "body": (1: 22px, 2: 20px, 3: 18px, 4: 16px, 5: 14px), "link": (1: 22px, 2: 20px, 3: 18px, 4: 16px, 5: 14px), "market": (1: 18px)) !default
+$font-typography-weight-map: ("heading": map.get($font-weight-map, bold), "body-bold": map.get($font-weight-map, bold), "body": map.get($font-weight-map, regular), "link": map.get($font-weight-map, bold), "market": map.get($font-weight-map, regular)) !default
+$font-text-decoration-line-map: ("link": underline, "market": line-through) !default
+$font-color-map: ("heading": $font-color, "body-bold": $font-color, "body": $font-color, "link": map.get(palette.$secondary-palette, 50), "market": $font-color) !default
+$font-cursor-map: ("link": pointer)
+
+$fonts: () !default
+$fonts: append($fonts, ("name": "Inter", "path": "~src/assets/fonts/Inter/Inter-Regular", "exts": (ttf), "style": normal, "weight": map.get($font-weight-map, regular)))
+$fonts: append($fonts, ("name": "Inter", "path": "~src/assets/fonts/Inter/Inter-SemiBold", "exts": (ttf), "style": normal, "weight": map.get($font-weight-map, bold)))
+

@@ -1,0 +1,22 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+.input
+  border: 1px solid map.get(lb.$vt-palette-neutral-palette, 40)
+  height: 40px
+  width: 100%
+  border-radius: lb.$vt-borders-border-radius-sm
+  padding: 11px 8px
+  line-height: 18px
+  box-sizing: border-box
+  display: inline-flex
+  &:focus
+    border-color: lb.$vt-palette-secondary
+
+  @include placeholder()
+    color: map.get(lb.$vt-palette-neutral-palette, 40)
+
+
+  &-support-two
+    border-color: lb.$vt-palette-secondary

@@ -1,0 +1,43 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+@import "src/sass/variables"
+
+$button-primary: lb.$vt-palette-primary
+$button-dark-primary: map.get(lb.$vt-palette-primary-palette, 60)
+$button-text-primary: lb.$vt-palette-white
+
+$button-secondary: map.get(lb.$vt-palette-neutral-palette, 10)
+$button-dark-secondary: map.get(lb.$vt-palette-neutral-palette, 20)
+$button-text-secondary: map.get(lb.$vt-palette-neutral-palette, 100)
+
+$button-ghost: transparent
+$button-dark-ghost: map.get(lb.$vt-palette-neutral-palette, 10)
+$button-text-ghost: lb.$vt-palette-secondary
+$button-text-ghost-red: lb.$vt-palette-error
+
+$button-outline: lb.$vt-palette-white
+$button-dark-outline: map.get(lb.$vt-palette-neutral-palette, 20)
+$button-border-outline: lb.$vt-palette-primary
+$button-text-outline: lb.$vt-palette-primary
+
+$button-icon: lb.$vt-palette-white
+$button-dark-icon: map.get(lb.$vt-palette-neutral-palette, 20)
+$button-text-icon: lb.$vt-palette-primary
+
+$button-picker: lb.$vt-palette-white
+$button-dark-picker: map.get(lb.$vt-palette-neutral-palette, 10)
+$button-border-picker: map.get(lb.$vt-palette-neutral-palette, 40)
+$button-text-picker: map.get(lb.$vt-palette-neutral-palette, 100)
+
+$button-disabled: map.get(lb.$vt-palette-neutral-palette, 20)
+$button-text-disabled: map.get(lb.$vt-palette-neutral-palette, 40)
+
+
+//default
+$button-text-color: map.get(lb.$vt-palette-neutral-palette, 100)
+$button-font-family: $font-family-base
+$button-font-size: $font-size-desktop-base
+$button-font-weight: $font-weight-base
+$button-line-height: $line-height-regular
+$button-border-radius: lb.$vt-borders-border-radius-pill

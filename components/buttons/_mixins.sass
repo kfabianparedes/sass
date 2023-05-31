@@ -1,0 +1,11 @@
+//Create Custom Button color
+@mixin create-button-color($name,  $background, $color,  $border: $background,  $hover-background: $background,  $hover-color: $color,  $hover-border: $hover-background)
+  .btn-#{$name}
+    background-color: $background
+    border-color: $border
+    color: $color
+
+    &:hover
+      background-color: $hover-background
+      border-color: $hover-border
+      color: $hover-color

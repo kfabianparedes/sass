@@ -1,0 +1,19 @@
+@use "sass:map"
+@use "../vita" as lb
+@use "../variables/colors.variables"
+
+lb.$vt-palette-primary-palette: colors.$green-palette
+lb.$vt-palette-secondary-palette: colors.$blue-palette
+
+lb.$vt-palette-primary: map.get(lb.$vt-palette-primary-palette, lb.$vt-palette-default-scale-palette)
+lb.$vt-palette-secondary: map.get(lb.$vt-palette-secondary-palette, lb.$vt-palette-default-scale-palette)
+
+
+lb.$vt-fonts-fonts: append((), ("name": "Poppins", "path": "~src/assets/fonts/poppins/Poppins-Regular", "exts": (ttf), "style": normal, "weight": map.get(lb.$vt-fonts-font-weight-map, regular)))
+lb.$vt-fonts-fonts: append(lb.$vt-fonts-fonts, ("name": "Poppins", "path": "~src/assets/fonts/poppins/Poppins-SemiBold", "exts": (ttf), "style": normal, "weight": map.get(lb.$vt-fonts-font-weight-map, bold)))
+
+lb.$vt-fonts-font-family-base:  Poppins, lb.$vt-fonts-font-family-monospace
+lb.$vt-fonts-font-letter-spacing: 0.2px
+lb.$vt-fonts-font-color-map: map.merge(lb.$vt-fonts-font-color-map, ("link": map.get(lb.$vt-palette-secondary-palette, 50)))
+
+lb.$vt-components-button-border-radius: map.get(lb.$vt-borders-border-radius-map, 6)

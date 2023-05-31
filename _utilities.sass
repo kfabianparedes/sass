@@ -1,0 +1,103 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "utilities/rounded"
+@import "src/sass/mixins"
+
+.display-center
+  display: flex
+  justify-content: center
+  align-items: center
+
+.display-flex
+  display: flex
+
+.display-vertical-center
+  display: flex
+  align-items: center
+
+.display-horizontal-center
+  display: flex
+  justify-content: center
+
+.display-horizontal-end
+  display: flex
+  justify-content: flex-end
+
+.ellipsis
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+.cursor-pointer
+  cursor: pointer
+
+.pointer-event-none
+  cursor: default
+  pointer-events: none
+
+.no-scrollable
+  position: fixed
+  overflow-y: scroll
+
+.font-bolt-800
+  font-weight: 800
+
+
+.position-center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+.position-bottom-block
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+
+.position-horizontal-center
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+
+.position-vertical-center
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+
+.overlay
+  background: rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.6)
+  @extend .position-bottom-block
+  top: 0
+  z-index: 50
+
+.dropdown-address
+  .mat-menu-content
+    padding: 0 10px !important
+
+.main-login-modal
+  margin: auto
+  @include media-breakpoint-down(md)
+    position: absolute
+    top: 0
+    bottom: 0
+    margin: auto
+    left: 0
+    right: 0
+    height: 375px
+
+    &.modal-login-container
+      height: auto
+      max-height: 100%
+      overflow-y: auto
+
+
+.main-login-modal-responsive
+  mat-dialog-container.mat-dialog-container
+    border-radius: 0
+
+.dropdown-actions
+  .mat-menu-content
+    padding: 0 13px !important

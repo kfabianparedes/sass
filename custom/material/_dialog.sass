@@ -1,0 +1,119 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "src/sass/variables"
+@import "src/sass/utilities"
+@import "src/sass/mixins"
+
+$lg-modal-max-width: 686px
+$width-home-location-alert: 440px
+// prettier-ignore
+mat-dialog-container.mat-dialog-container
+  padding: 0
+  @extend .card
+  @extend .card-shadow
+  color: map.get(lb.$vt-palette-neutral-palette, 100)
+
+// this class covers the entire screen width (Responsive)
+.custom-full-x-modal-overlay
+  max-width: 100% !important
+  @include media-breakpoint-down(md)
+    height: 100vh
+  .mat-dialog-container
+    border-radius: 0 !important
+  @include media-breakpoint-up(lg)
+    max-width: $lg-modal-max-width !important
+    margin: auto !important
+    .mat-dialog-container
+        border-radius: lb.$vt-borders-border-radius-lg !important
+
+// the same that class above but with 16px of padding-x (Responsive)
+.custom-normal-x-modal-overlay
+  max-width: calc( 100% - 32px ) !important
+  margin: auto !important
+  @include media-breakpoint-up(lg)
+    max-width: $lg-modal-max-width
+    margin: auto !important
+
+// this class covers the entire screen width and screen height (Responsive)
+.custom-full-xy-modal-overlay
+  @extend .custom-full-x-modal-overlay
+  height: 100vh !important
+  max-height: 100vh !important
+  @include media-breakpoint-up(lg)
+    height: 90vh !important
+    max-height: 90vh !important
+
+//home location alert
+.custom-home-location-panel-dialog-content-right
+  position: absolute !important
+  right: $spacer * 3
+  max-width: 400px
+
+.custom-home-location-panel-dialog-content-center
+  position: absolute !important
+  max-width: 400px
+
+//home location alert
+.custom-home-location-panel-dialog
+  position: absolute !important
+  bottom: $spacer * 2
+  left: $spacer * 3
+  width: $width-home-location-alert
+
+.custom-home-location-backdrop-dialog
+  opacity: 0
+.custom-full-all-modal-overlay
+  @extend .custom-full-x-modal-overlay
+  @include media-breakpoint-down(md)
+    width: 100% !important
+  @include media-breakpoint-down(md)
+    height: 100% !important
+    max-height: 100% !important
+
+.custom-full-all-modal-overlay-flex
+  mat-dialog-container
+    @include media-breakpoint-down(md)
+      background: none !important
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+    fp-flextime-modal
+      @include media-breakpoint-down(md)
+        background: white !important
+        padding: 24px
+        border-radius: 16px 16px 0px 0px
+
+  @extend .custom-full-x-modal-overlay
+  @include media-breakpoint-down(md)
+    width: 100% !important
+  @include media-breakpoint-down(md)
+    height: 100% !important
+    max-height: 100% !important
+
+// for consulta de stock
+.afiliation-modals-container
+  width: calc(100% - 24px) !important
+  max-width: calc(100% - 24px) !important
+  height: 470px !important
+  max-height: 470px !important
+  @include media-breakpoint-up(lg)
+    width: 634px !important
+    max-width: 634px !important
+    height: 480px !important
+    max-height: 480px !important
+
+.confirmations-modal-container
+  width: calc(100% - 24px) !important
+  max-width: calc(100% - 24px) !important
+  @include media-breakpoint-up(sm)
+    width: 340px !important
+    max-width: 340px !important
+
+.office-modal
+  max-width: 816px !important
+// for Checkout RET
+.custom-choose-a-store-responsive-overlay
+  .mat-dialog-container
+    border-radius: 0

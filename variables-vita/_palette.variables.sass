@@ -1,0 +1,26 @@
+@use 'sass:map'
+@use "colors.variables"
+@forward "colors.variables" show $white, $black, $white-alpha-palette, $black-alpha-palette
+
+$default-scale-palette: 50 !default
+
+$primary-palette: colors.$blue-palette !default
+$secondary-palette: colors.$indigo-palette !default
+$tertiary-palette: colors.$cyan-palette !default
+$quaternary-palette: colors.$turquoise-palette !default
+$quinary-palette: colors.$pink-palette !default
+$success-palette: colors.$teal-palette !default
+$warning-palette: colors.$yellow-palette !default
+$error-palette: colors.$red-palette !default
+$neutral-palette: colors.$gray-palette !default
+
+
+$primary: map.get($primary-palette, $default-scale-palette) !default
+$secondary: map.get($secondary-palette, $default-scale-palette) !default
+$tertiary: map.get($tertiary-palette, $default-scale-palette) !default
+$quaternary: map.get($quaternary-palette, $default-scale-palette) !default
+$quinary: map.get($quinary-palette, $default-scale-palette) !default
+$success: map.get($success-palette, $default-scale-palette) !default
+$warning: map.get($warning-palette, $default-scale-palette) !default
+$error: map.get($error-palette, $default-scale-palette) !default
+$neutral: map.get($neutral-palette, $default-scale-palette) !default

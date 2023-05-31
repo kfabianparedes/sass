@@ -1,0 +1,41 @@
+@use "sass:map"
+
+@use "library" as lb
+@use "library.theme" as lb-theme
+@use "library.declaration"
+
+@use "accessibility"
+
+
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"
+@import "~swiper/swiper.min.css"
+/* You can add global styles to this file, and also import other style files */
+
+@import "variables"
+@import "mixins"
+@import "functions"
+@import "builder"
+@import "animations"
+@import "customs"
+@import "utilities"
+@import "main"
+@import "components"
+
+// @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel'
+// @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default'
+
+*
+  outline: none
+
+html
+  @include scrollbar(10px)
+
+body
+  @include lb.vt-typography-mixin-typography("body", 1)
+  background-color: map.get(lb.$vt-palette-neutral-palette, 20)
+
+a
+  &:hover
+    text-decoration: none
+

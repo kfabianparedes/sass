@@ -1,0 +1,116 @@
+@import "src/sass/variables"
+
+// Margin and Padding
+
+@function breakpoint-length($breakpoint, $breakpoints: $grid-breakpoints)
+  $breakpoint-length-lg: map_get($grid-breakpoints, lg)
+  $breakpoint-length: map_get($grid-breakpoints, $breakpoint)
+  @return $breakpoint-length-lg <= $breakpoint-length
+
+
+@each $breakpoint in map-keys($grid-breakpoints)
+  @include media-breakpoint-up($breakpoint)
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints)
+    @each $prop, $abbrev in (margin: m, padding: p)
+      @each $size, $desktopLength in $spacers
+
+        $breakpoint-size: if(breakpoint-length($breakpoint), $breakpoint, lg)
+        $responsive-length: map_get($spacers-responsive, $size)
+        $length: if(breakpoint-length($breakpoint), $desktopLength, $responsive-length)
+
+        $diffLength: $desktopLength != $responsive-length and $length != $desktopLength
+
+        .#{$abbrev}#{$infix}-#{$size}
+          #{ $prop }: $length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              #{ $prop }: $desktopLength !important
+
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size}
+          #{ $prop }-top: $length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              #{ $prop }-top: $desktopLength !important
+
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size}
+          #{ $prop }-right: $length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              #{ $prop }-right: $desktopLength !important
+
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size}
+          #{ $prop }-bottom: $length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              #{ $prop }-bottom: $desktopLength !important
+
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size}
+          #{ $prop }-left: $length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              #{ $prop }-left: $desktopLength !important
+
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $desktopLength in $spacers
+      @if $size != 0
+
+        $breakpoint-size: if(breakpoint-length($breakpoint), $breakpoint, lg)
+        $responsive-length: map_get($spacers-responsive, $size)
+        $length: if(breakpoint-length($breakpoint), $desktopLength, $responsive-length)
+
+        $diffLength: $desktopLength != $responsive-length and $length != $desktopLength
+
+        .m#{$infix}-n#{$size}
+          margin: -$length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              margin: -$length !important
+
+        .mt#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size}
+          margin-top: -$length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              margin-top: -$desktopLength !important
+
+        .mr#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size}
+          margin-right: -$length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              margin-right: -$desktopLength !important
+
+        .mb#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size}
+          margin-bottom: -$length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              margin-bottom: -$desktopLength !important
+
+        .ml#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size}
+          margin-left: -$length !important
+          @if $diffLength
+            @include media-breakpoint-up($breakpoint-size)
+              margin-left: -$desktopLength !important
+
+    // Some special margin utils
+    .m#{$infix}-auto
+      margin: auto !important
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto
+      margin-top: auto !important
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto
+      margin-right: auto !important
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto
+      margin-bottom: auto !important
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto
+      margin-left: auto !important

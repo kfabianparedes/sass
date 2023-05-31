@@ -1,0 +1,66 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@mixin box-size($height, $width: $height)
+  height: $height
+  width: $width
+
+
+@mixin placeholder()
+  &::placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+
+
+@mixin scrollbar($width: 8px, $border-radius: 4px)
+  &::-webkit-scrollbar
+    width: $width
+  &::-webkit-scrollbar-track
+    background: darken( lb.$vt-palette-white, 10%)
+  &::-webkit-scrollbar-thumb
+    border-radius: $border-radius
+    background: map.get(lb.$vt-palette-neutral-palette, 40)
+  &::-webkit-scrollbar-thumb:hover
+    background: darken(map.get(lb.$vt-palette-neutral-palette, 40), 10%)
+
+@mixin scrollbar2($width: 4px, $border-radius: 2px)
+  &::-webkit-scrollbar
+    width: $width
+  &::-webkit-scrollbar-track
+    background:  lb.$vt-palette-white
+  &::-webkit-scrollbar-thumb
+    border-radius: $border-radius
+    background: map.get(lb.$vt-palette-neutral-palette, 40)
+  &::-webkit-scrollbar-thumb:hover
+    background: darken(map.get(lb.$vt-palette-neutral-palette, 40), 10%)
+
+
+@mixin rotate($degrees)
+  -webkit-transform: rotate($degrees)
+  -moz-transform: rotate($degrees)
+  -ms-transform: rotate($degrees)
+  -o-transform: rotate($degrees)
+  transform: rotate($degrees)
+
+
+@mixin keyframe($name)
+  @keyframes #{$name}
+    @content
+  @-webkit-keyframes #{$name}
+    @content
+
+
+@mixin non-selectable()
+  -moz-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+  user-select: none
+

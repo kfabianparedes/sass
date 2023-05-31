@@ -1,0 +1,9 @@
+@use "sass:map"
+@use "../vita" as lb
+@use "../colors.variables"
+
+lb.$vt-palette-primary-palette: colors.$blue-palette
+lb.$vt-palette-secondary-palette: colors.$indigo-palette
+
+lb.$vt-palette-primary: map.get(lb.$vt-palette-primary-palette, lb.$vt-palette-default-scale-palette)
+lb.$vt-palette-secondary: map.get(lb.$vt-palette-secondary-palette, lb.$vt-palette-default-scale-palette)

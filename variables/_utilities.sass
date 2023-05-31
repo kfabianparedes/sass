@@ -1,0 +1,48 @@
+@use "sass:math"
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "colors"
+
+$border-width-large: 8px
+$border-width-small: 4px
+
+$spacer: 14px
+$spacers: () !default
+$spacers: map-merge((0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 4: ($spacer * 1.5), 5: ($spacer * 3)), $spacers)
+
+$spacer-responsive: 16px
+$spacers-responsive: () !default
+$spacers-responsive: map-merge((0: 0, 1: ($spacer-responsive * .25), 2: ($spacer-responsive * .5), 3: $spacer-responsive, 4: ($spacer-responsive * 1.5), 5: ($spacer-responsive * 3)), $spacers-responsive)
+
+$box-shadow-zero: 0px
+$box-shadow-max: 999px
+$box-shadow: $box-shadow-zero 4px 20px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.1)
+$box-shadow-world-category: $box-shadow-zero 10px 30px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.20)
+$box-shadow-address-search: $box-shadow-zero 4px 16px 2px map.get(lb.$vt-palette-neutral-palette, 20)
+$box-shadow-sm: $box-shadow
+$box-shadow-lg: $box-shadow
+$box-shadow-order-item : $box-shadow-zero 2px 4px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.3)
+$box-shadow-checkout: 2px $box-shadow-zero $box-shadow-zero lb.$vt-palette-secondary, 4px $box-shadow-zero $box-shadow-zero lb.$vt-palette-secondary, 4px -2px $box-shadow-zero lb.$vt-palette-secondary, 4px -4px $box-shadow-zero lb.$vt-palette-secondary, 4px -6px $box-shadow-zero lb.$vt-palette-secondary, 4px -8px $box-shadow-zero lb.$vt-palette-secondary
+$box-shadow-category-form: $box-shadow-zero 10px 30px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.20)
+$box-shadow-input-search: $box-shadow-zero 4px 20px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.1)
+$box-shadow-layout: $box-shadow-zero 2px 5px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.3)
+$box-shadow-coupon-category-landing: $box-shadow-zero 3px 10px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.15)
+$box-shadow-coupon: $box-shadow-zero 25px $box-shadow-zero $box-shadow-zero lb.$vt-palette-secondary
+$box-shadow-search-header: 1px 1px 2px $box-shadow-zero rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.1)
+$box-shadow-ngb-custom: $box-shadow-zero 2px 3px $box-shadow-zero rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.12)
+$box-shadow-home-location-contentful: $box-shadow-zero 4px 4px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.04)
+$box-shadow-world-coupon-horizontal-1: $box-shadow-zero 30px 80px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.15)
+$box-shadow-world-coupon-horizontal-2: inset $box-shadow-zero 4px 40px -5px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.15)
+$box-shadow-world-coupon-horizontal-3: inset $box-shadow-zero -4px 15px -5px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.1)
+$box-shadow-world-category: $box-shadow-zero 10px 30px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.20)
+$box-shadow-world-header: $box-shadow-zero 20px 30px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.05)
+$box-shadow-world-slider-item: 1px 2px 20px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.1)
+$box-shadow-switch-list-input-focus: $box-shadow-zero $box-shadow-zero 1px lb.$vt-palette-secondary
+$box-shadow-contentful-list-template-2: $box-shadow-zero 8px 20px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.25)
+$box-shadow-contentful-list-template-3: $box-shadow-zero 7px 20px rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.08)
+$box-shadow-contentful-slider: $box-shadow-zero 3px 5px rgba(map.get(lb.$vt-palette-neutral-palette, 100), .2)
+$box-shadow-categories-menu: $box-shadow-zero 4px 20px $box-shadow-zero rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.1)
+$box-shadow-search-sidenav-container: 1px 1px 2px $box-shadow-zero rgba(map.get(lb.$vt-palette-neutral-palette, 100), 0.2)
+

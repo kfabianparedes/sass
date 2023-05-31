@@ -1,0 +1,72 @@
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+.btn
+  border: solid transparent
+  font-weight: $button-font-weight
+  font-size: $button-font-size
+  color: $button-text-color
+  text-align: center
+  vertical-align: middle
+  user-select: none
+  background-color: transparent
+  line-height: $button-line-height
+  border-radius: lb.$vt-components-button-border-radius
+  transition: .25s linear
+  @extend .btn-inline-block
+  @extend .btn-spacer-regular
+  @extend .btn-border-regular
+
+  &:hover,
+  &:focus
+    text-decoration: none
+    outline: 0
+    box-shadow: none
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled
+    box-shadow: none
+
+
+  &.btn-spacer-small
+    padding: ($spacer-responsive * .5) $spacer-responsive
+    @include media-breakpoint-up(lg)
+      padding: ($spacer * .5) $spacer
+
+  &.btn-spacer-regular
+    padding: $spacer-responsive ($spacer-responsive * 1.25)
+    @include media-breakpoint-up(lg)
+      padding: $spacer ($spacer * 1.25)
+
+  &.btn-spacer-large
+    padding: ($spacer-responsive * 1.5) ($spacer-responsive * 2)
+    @include media-breakpoint-up(lg)
+      padding: ($spacer * 1.5) ($spacer * 2)
+
+
+  &.btn-border-regular
+    border-width: 1px
+
+  &.btn-border-bold
+    border-width: 2px
+
+
+  &.btn-block
+    display: block
+    width: 100%
+    transition: .25s linear
+
+  &.btn-inline-block
+    display: inline-block
+
+.content-iframe iframe
+  display: block
+  background: #fff
+  border: none
+  height: 100vh
+  width: 100vw
+.flex-responsive
+  @media (max-width: 768px)
+    width: 100% !important
+
+

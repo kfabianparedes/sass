@@ -1,0 +1,11 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+//TEXT TAG
+@include text('text-tag', $font-size-responsive-text-tag-map, $font-size-desktop-text-tag-map)
+  color: map.get(lb.$vt-palette-neutral-palette, 60)
+  font-style: $font-style-normal !important
+  font-weight: $font-weight-bold !important
+  line-height: $line-height-regular !important
+  text-transform: uppercase !important

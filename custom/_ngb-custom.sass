@@ -1,0 +1,64 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+ngb-pagination
+  .pagination
+    margin: 0
+
+    .page-item
+      margin: 0 .45rem
+
+      &:first-child
+        margin-left: 0
+
+      &:last-child
+        margin-right: 0
+
+      .page-link
+        border-radius: lb.$vt-borders-border-radius-xs
+        box-shadow: $box-shadow-ngb-custom
+        border: 0
+        font-weight: 600
+        color: map.get(lb.$vt-palette-neutral-palette, 80)
+        font-size: .875rem
+        padding: 0
+        @include box-size(30px)
+        @extend .display-center
+
+        &:hover,
+        &:focus,
+        &:active
+          background-color: transparent
+
+        span
+          display: none
+
+        &[aria-label="Next"]:after,
+        &[aria-label="Previous"]:after
+          content: ''
+          width: 12px
+          height: 7.5px
+          position: absolute
+          top: calc(50% - 5px)
+          left: calc(50% - 7.5px)
+          background-image: url('~src/assets/images/main/chevron-gray.svg')
+          background-position: center center
+          background-repeat: no-repeat
+          background-size: contain
+
+
+        &[aria-label="Next"]:after
+          transform: rotate(-90deg)
+
+        &[aria-label="Previous"]:after
+          transform: rotate(90deg)
+
+      &.active
+        .page-link
+          background-color: lb.$vt-palette-primary
+          color:  lb.$vt-palette-white
+          font-weight: 800
+
+      &.disabled
+        opacity: .3

@@ -1,0 +1,55 @@
+@use "sass:math"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "~bootstrap/scss/functions"
+@import "~bootstrap/scss/variables"
+@import "~bootstrap/scss/mixins"
+
+/* set the overriding variables */
+@import "../variables"
+
+/* override the !default vars with the values we set above */
+@import "~bootstrap/scss/bootstrap-reboot"
+@import "bootstrap/utilities"
+@import "~bootstrap/scss/images"
+@import "~bootstrap/scss/grid"
+@import "bootstrap/spacing"
+
+.container,
+.container-fluid
+  padding-right: $container-padding-width-responsive
+  padding-left: $container-padding-width-responsive
+  @include media-breakpoint-up(lg)
+    padding-right: $container-padding-width
+    padding-left: $container-padding-width
+  @include media-breakpoint-down(md)
+    max-width: 100%
+
+.row
+  margin-right: math.div(-$grid-gutter-width-responsive, 2)
+  margin-left: math.div(-$grid-gutter-width-responsive , 2)
+  @include media-breakpoint-up(lg)
+    margin-right: math.div(-$grid-gutter-width , 2)
+    margin-left: math.div(-$grid-gutter-width , 2)
+
+*[class*="col-"],
+.col
+  padding-right: math.div($grid-gutter-width-responsive , 2)
+  padding-left: math.div($grid-gutter-width-responsive , 2)
+  @include media-breakpoint-up(lg)
+    padding-right: math.div($grid-gutter-width , 2)
+    padding-left: math.div($grid-gutter-width , 2)
+
+
+.content
+  max-width: 100%
+  position: relative
+  padding-right: $content-padding-width-responsive
+  padding-left: $content-padding-width-responsive
+  @include media-breakpoint-up(lg)
+    padding-right: $content-padding-width
+    padding-left: $content-padding-width
+
+a.call-to-action
+  color: lb.$vt-palette-primary !important

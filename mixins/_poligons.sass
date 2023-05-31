@@ -1,0 +1,35 @@
+@use "sass:math"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@function calculateSide($height)
+  @return math.div($height, 1.732)
+
+@function calculateBorderWidth($height)
+  @return math.div($height * 2 , 22.5)
+
+@function calculateBorderHeight($height)
+  @return math.div($height, 22.5)
+
+@mixin hexagono($height: 450, $background:  lb.$vt-palette-white)
+  & > .hexagono
+    position: relative
+    margin: 14px auto
+    width: calculateSide($height) * 1px
+    height: $height * 1px
+    border-radius: #{calculateBorderWidth($height) * 1px}/#{calculateBorderHeight($height) * 1px}
+    background: $background
+  & > .hexagono:before, & > .hexagono:after
+    position: absolute
+    width: inherit
+    height: inherit
+    border-radius: inherit
+    background: inherit
+    content: ''
+    left: 0
+  & > .hexagono:before
+    -webkit-transform: rotate(60deg)
+    transform: rotate(60deg)
+  & > .hexagono:after
+    -webkit-transform: rotate(-60deg)
+    transform: rotate(-60deg)

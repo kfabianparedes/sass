@@ -1,0 +1,13 @@
+/* Soluciona el issue de imágenes borrosas en versiones recientes (Abril 2022) de Chrome
+  *sin* arruinarlas en Safari */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm)
+  /* Esta es la regla que soluciona el tema de las imágenes borrosas.
+     Sin embargo, esta misma regla hace que se vean pixeleadas en Safari */
+  img
+    image-rendering: -webkit-optimize-contrast !important
+
+/* Con esta regla, se desactiva la regla anterior solo para Safari */
+@media not all and (min-resolution: .001dpcm)
+  @supports (-webkit-appearance: none) and (stroke-color: transparent)
+    img
+      image-rendering: unset !important

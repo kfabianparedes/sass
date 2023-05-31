@@ -1,0 +1,71 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+.cdk-overlay-pane.mat-snack-bar-handset
+  width: auto
+
+snack-bar-container.mat-snack-bar-container
+  @extend .card
+  @extend .card-shadow
+
+$toast-snackbar-width: 292px
+$toast-snackbar-height: 40px
+
+snack-bar-container.mat-snack-bar-container[class*="toast-snackbar"]
+  min-width: $toast-snackbar-width
+  width: auto
+  padding: $spacer
+  min-height: $toast-snackbar-height
+  margin-bottom: $spacer * 2
+  margin-top: $spacer * 4.5
+  background-color: map.get(lb.$vt-palette-neutral-palette, 100)
+  @extend .display-center
+  //
+  //@include media-breakpoint-up(xl)
+  //  width: $toast-snackbar-width-large
+
+  fp-snackbar-toast
+    display: flex
+
+//ALERT SNACKBAR
+$alert-snackbar-default-color: map.get(lb.$vt-palette-neutral-palette, 40)
+$alert-snackbar-info-color: lb.$vt-palette-warning
+$alert-snackbar-success-color: lb.$vt-palette-success
+$alert-snackbar-error-color: lb.$vt-palette-error
+
+$alert-snackbar-width-small: 328px
+$alert-snackbar-height-small: 112px
+$alert-snackbar-border-top-small: 10.19px
+
+$alert-snackbar-width-large: 315px
+$alert-snackbar-height-large: 99px
+$alert-snackbar-border-top-large: 7px
+$alert-snackbar-margin-left: $container-padding-width
+$alert-snackbar-margin-bottom: $spacer * 1.5
+
+snack-bar-container.mat-snack-bar-container[class*="alert-snackbar"]
+  min-width: $alert-snackbar-width-large
+  width: $alert-snackbar-width-small
+  min-height: $alert-snackbar-height-small
+  border-top: $alert-snackbar-border-top-small solid $alert-snackbar-default-color
+  padding: $spacer ($spacer * 1.125) ($spacer * 1.75)
+  margin-top: $spacer * 4.5
+
+  @include media-breakpoint-up(xl)
+    margin-bottom: $alert-snackbar-margin-bottom
+    margin-left: $alert-snackbar-margin-left
+    border-top-width: $alert-snackbar-border-top-large
+    width: $alert-snackbar-width-large
+    min-height: $alert-snackbar-height-large
+    height: auto
+    padding: $spacer
+
+  &.info-alert-snackbar
+    border-top-color: $alert-snackbar-info-color
+
+  &.success-alert-snackbar
+    border-top-color: $alert-snackbar-success-color
+
+  &.error-alert-snackbar
+    border-top-color: $alert-snackbar-error-color

@@ -1,0 +1,56 @@
+@use "sass:math"
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+mat-selection-list.mat-list-base
+  padding: 0
+
+  mat-list-option.mat-list-option
+    height: auto
+    background-color: transparent
+
+    &.mat-list-item
+      .mat-list-item-content
+        padding: 0
+
+        .mat-list-text
+          overflow: initial
+          padding-left: $spacer-responsive
+          padding-right: $spacer-responsive
+
+          @include media-breakpoint-up(xxl)
+            padding-left: math.div($spacer, 2)
+            padding-right: $spacer
+
+    mat-pseudo-checkbox.mat-pseudo-checkbox
+      border: 1px solid map.get(lb.$vt-palette-neutral-palette, 80)
+      background-color:  lb.$vt-palette-white
+      border-radius: lb.$vt-borders-border-radius-xs
+      @include box-size(24px)
+
+      &-checked::after
+        top: 6px
+        left: 5px
+        width: 10px
+        height: 4px
+        border-width: 3px
+
+      @include media-breakpoint-up(xxl)
+        @include box-size(16px)
+        &-checked::after
+          top: 2.4px
+          left: 1px
+          width: 8px
+          height: 3px
+          border-width: 2px
+
+
+      &.mat-pseudo-checkbox-checked
+        background-color: lb.$vt-palette-secondary
+        border-color: lb.$vt-palette-secondary
+
+        & + .mat-list-text
+          font-weight: $font-weight-bold
+
+

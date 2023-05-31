@@ -1,0 +1,197 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "src/sass/mixins"
+@import "src/sass/utilities"
+@import "material/snackbar"
+@import "material/expansion-panel"
+@import "material/accordion"
+@import "material/bottom-sheet"
+@import "material/dialog"
+@import "material/menu"
+@import "material/checkbox"
+@import "material/selection-list"
+@import "material/data-picker"
+
+@import '~@angular/material/theming'
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config($font-family: lb.$vt-fonts-font-family-base)
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography)
+
+
+mat-radio-button.mat-radio-button
+  label
+    margin: 0
+
+  .mat-radio-ripple
+    display: none
+
+  &.mat-accent
+    &.mat-radio-checked
+      .mat-radio-outer-circle
+        border-color: lb.$vt-palette-primary
+
+    .mat-radio-inner-circle
+      background-color: lb.$vt-palette-primary
+
+
+.filter-item
+  padding: .5rem 0
+
+
+  mat-radio-button.mat-radio-button
+    label
+      font-size: .75rem
+
+    .mat-radio-inner-circle,
+    .mat-radio-outer-circle,
+    .mat-radio-container
+      @include box-size(15px)
+
+    .mat-radio-label
+      display: flex
+
+    .mat-radio-label-content
+      @extend .ellipsis
+
+  .mat-expansion-panel-body
+    padding: 0
+
+
+  mat-accordion
+    mat-expansion-panel
+      background-color: transparent
+
+    mat-expansion-panel-header
+      box-shadow: none
+      border: 0
+
+      .mat-content
+        z-index: 1
+        overflow: initial
+        width: 100%
+
+      .mat-expansion-indicator
+        display: none
+
+
+  @include media-breakpoint-up(md)
+    padding: 0
+    .child-checkbox-item
+      padding-right: 1rem
+      padding-left: 1.5rem
+
+    .mat-checkbox
+      .mat-checkbox-inner-container
+        @include box-size(16px)
+
+      .mat-checkbox-frame
+        border-width: 1px
+        border-radius: lb.$vt-borders-border-radius-xs
+
+      .mat-checkbox-background
+        border-radius: lb.$vt-borders-border-radius-xs
+
+      .mat-checkbox-layout
+        flex-direction: initial
+
+        .mat-checkbox-label
+          font-size: 0.875rem
+
+      .mat-checkbox-checkmark-path
+        stroke-dasharray: 22.91026
+        stroke-width: 4.13333px
+
+      .mat-checkbox-checkmark
+        padding: 2px
+
+      &.mat-checkbox-checked,
+      &.mat-checkbox-indeterminate
+        .mat-checkbox-label
+          color: inherit
+          font-weight: $font-weight-bold
+
+      &:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element
+        background-color: transparent
+
+    mat-accordion
+      mat-expansion-panel-header
+        .mat-expansion-indicator
+          display: block
+          position: absolute
+          right: 5px
+
+        &:not(.mat-expanded)
+          .mat-expansion-indicator
+            top: 0
+
+        //Custom checkbox with only with Expansion
+        .mat-checkbox .mat-checkbox-layout .mat-checkbox-label
+          width: 78%
+
+
+mat-sidenav-container.mat-drawer-container
+  visibility: hidden
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: 10
+
+  mat-sidenav-content
+    display: none
+
+  mat-sidenav
+    width: 100%
+
+
+//********************
+//***USER INFORMATION
+//*********************
+
+.user-information
+  mat-radio-button
+    .mat-radio-container
+      display: none
+
+    .mat-radio-label
+      background-color: lb.$vt-palette-white
+      border: 1px solid map.get(lb.$vt-palette-neutral-palette, 60)
+      border-radius: lb.$vt-borders-border-radius-xs
+      height: 35px
+      @extend .display-center
+
+      .mat-radio-label-content
+        padding: 0
+        color: map.get(lb.$vt-palette-neutral-palette, 60)
+        font-size: .875rem
+
+    &.mat-radio-checked
+      .mat-radio-label
+        background-color: lb.$vt-palette-primary
+        border-color: lb.$vt-palette-primary
+
+        .mat-radio-label-content
+          color: lb.$vt-palette-white
+
+  mat-form-field
+    .mat-form-field-underline
+      display: none
+
+    .mat-form-field-infix
+      padding-bottom: 0
+
+    .mat-form-field-suffix
+      position: absolute
+      right: .5rem
+      bottom: calc(50% - 9px)
+
+// icons
+.mat-button-focus-overlay
+  opacity: 0 !important

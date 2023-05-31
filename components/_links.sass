@@ -1,0 +1,31 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "../variables/colors"
+
+.link
+  text-decoration: none
+  color: map.get(lb.$vt-palette-neutral-palette, 100)
+
+  &:hover
+    text-decoration: none
+    color: map.get(lb.$vt-palette-neutral-palette, 100)
+
+  &-inline
+    color: lb.$vt-palette-secondary
+
+    &:hover
+      color: map.get(lb.$vt-palette-secondary-palette, 60)
+      text-decoration: underline
+
+  &-button
+    @extend .btn
+    background-color: transparent
+    border-color: transparent
+    color: lb.$vt-palette-secondary
+    white-space: nowrap
+
+    &:hover
+      color: map.get(lb.$vt-palette-secondary-palette, 60)
+      text-decoration: underline

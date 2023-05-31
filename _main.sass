@@ -1,0 +1,20 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "mixins"
+
+input
+  outline: none
+
+  @include placeholder()
+    color: map.get(lb.$vt-palette-neutral-palette, 20)
+
+  &:-webkit-autofill
+    -webkit-box-shadow: 0 0 0 1000px  lb.$vt-palette-white inset
+    -webkit-text-fill-color: map.get(lb.$vt-palette-neutral-palette, 60)
+
+hr
+  height: 1px
+  border: 0
+  background-color: map.get(lb.$vt-palette-neutral-palette, 20)

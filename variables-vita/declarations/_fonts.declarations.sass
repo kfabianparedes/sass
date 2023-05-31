@@ -1,0 +1,10 @@
+@use "src/sass/variables-vita/mixins/fonts.mixin" as fonts-mixins
+@use "../variables/fonts.variables" as fonts-variables
+
+@each $font in fonts-variables.$fonts
+  $name: if(map-has-key($font, "name"), map-get($font, "name"), null)
+  $path: if(map-has-key($font, "path"), map-get($font, "path"), null)
+  $weight: if(map-has-key($font, "weight"), map-get($font, "weight"), null)
+  $style: if(map-has-key($font, "style"), map-get($font, "style"), null)
+  $exts: if(map-has-key($font, "exts"), map-get($font, "exts"), null)
+  @include fonts-mixins.font-face($name, $path, $weight, $style, $exts)

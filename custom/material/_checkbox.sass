@@ -1,0 +1,54 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+mat-checkbox.mat-checkbox,
+.mat-checkbox-layout
+  width: 100%
+  margin: 0
+  flex-direction: row-reverse
+
+  .mat-checkbox-layout .mat-checkbox-label
+    font-size: 1rem
+    color: inherit
+    width: 100%
+    @extend .ellipsis
+
+  .mat-checkbox-frame
+    border: 1px solid map.get(lb.$vt-palette-neutral-palette, 80)
+    border-radius: lb.$vt-borders-border-radius-xs
+
+  .mat-checkbox-background
+    border-radius: lb.$vt-borders-border-radius-xs
+
+
+  .mat-checkbox-inner-container
+    background-color:  lb.$vt-palette-white
+    @include box-size(22px)
+    margin-left: 0
+    margin-right: 16px
+
+  .mat-checkbox-checkmark-path
+    stroke-dasharray: 22.91026
+    stroke-width: 4.13333px
+
+  .mat-checkbox-checkmark
+    padding: 2px
+
+  &.mat-checkbox-checked,
+  &.mat-checkbox-indeterminate
+    .mat-checkbox-label
+      color: inherit
+      font-weight: $font-weight-bold
+
+    &.mat-accent .mat-checkbox-background
+      background-color: lb.$vt-palette-secondary
+
+  &.mat-checkbox-disabled.mat-checkbox-checked,
+  &.mat-checkbox-disabled.mat-checkbox-indeterminate
+    .mat-checkbox-label
+      font-weight: $font-weight-normal
+
+    &.mat-accent .mat-checkbox-background
+      background-color: map.get(lb.$vt-palette-neutral-palette, 40)
+

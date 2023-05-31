@@ -1,0 +1,18 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "src/sass/variables"
+
+$bottom-sheet-spacer: calc(100% - #{$spacer-responsive * 2})
+
+mat-bottom-sheet-container.mat-bottom-sheet-container
+  width: $bottom-sheet-spacer
+  min-width: $bottom-sheet-spacer
+  margin: 0 auto
+  border-radius: lb.$vt-borders-border-radius lb.$vt-borders-border-radius lb.$vt-borders-border-radius-none lb.$vt-borders-border-radius-none
+  padding: 0
+  color: map.get(lb.$vt-palette-neutral-palette, 100)
+
+.custom-home-location-backdrop-bottom-sheet
+  opacity: 0

@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/mixins/hover"
+
+//mouse, touch pad
+@mixin media-fine-hover()
+  @media (pointer: fine) and (hover: hover)
+    @content
+
+//stylus-based screens (Cintiq, Wacom, etc)
+@mixin media-fine-none()
+  @media (pointer: fine) and (hover: none)
+    @content
+
+//	Nintendo Wii controller, Kinect
+@mixin media-coarse-hover()
+  @media (pointer: coarse) and (hover: hover)
+    @content
+
+//smartphones, touch screens
+@mixin media-coarse-none()
+  @media (pointer: coarse) and (hover: none)
+    @content

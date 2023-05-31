@@ -1,0 +1,26 @@
+@use "sass:map"
+@use "../variables/fonts.variables"
+
+@mixin typography($name, $size)
+  $size-map: if(map-has-key(fonts.$font-size-map, $name), map.get(fonts.$font-size-map, $name), ())
+  $line-height-map: if(map-has-key(fonts.$font-line-height-map, $name), map.get(fonts.$font-line-height-map, $name), ())
+
+  $size: if(map-has-key($size-map, $size), map.get($size-map, $size), null)
+  $line-height: if(map-has-key($line-height-map, $size), map.get($line-height-map, $size), null)
+  $color: if(map-has-key(fonts.$font-color-map, $name), map.get(fonts.$font-color-map, $name), fonts.$font-color)
+  $weight: if(map-has-key(fonts.$font-typography-weight-map, $name), map.get(fonts.$font-typography-weight-map, $name), normal)
+
+  color: $color
+  font-family: fonts.$font-family-base
+  font-size: $size
+  font-style: normal
+  font-weight: $weight
+  letter-spacing: fonts.$font-letter-spacing
+  line-height: $line-height
+
+  @if map.has-key(fonts.$font-cursor-map, $name)
+    cursor: map.get(fonts.$font-cursor-map, $name)
+
+  @if map-has-key(fonts.$font-text-decoration-line-map, $name)
+    text-decoration: map.get(fonts.$font-text-decoration-line-map, $name)
+

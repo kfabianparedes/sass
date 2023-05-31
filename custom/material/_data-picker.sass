@@ -1,0 +1,16 @@
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+mat-calendar
+  .mat-calendar-body-selected
+    background-color: lb.$vt-palette-secondary
+  .mat-calendar-table-header th
+    font-weight: bold
+
+mat-datepicker-content
+  margin: 0 !important
+
+mat-datepicker-toggle
+  button:focus
+    outline: none
+

@@ -1,0 +1,35 @@
+@include keyframe(fadeOutUp)
+  from
+    opacity: 1
+  to
+    opacity: 0
+    -webkit-transform: translate3d(0, -100%, 0)
+    transform: translate3d(0, -100%, 0)
+
+@include keyframe(fadeOutUpBig)
+  from
+    opacity: 1
+  to
+    opacity: 0
+    -webkit-transform: translate3d(0, -2000px, 0)
+    transform: translate3d(0, -2000px, 0)
+
+@include keyframe(fadeOutLeft)
+  from
+    opacity: 1
+
+  to
+    opacity: 0
+    -webkit-transform: translate3d(-100%, 0, 0)
+    transform: translate3d(-100%, 0, 0)
+
+@include keyframe(fadeOutRight)
+  from
+    opacity: 1
+
+  to
+    opacity: 0
+    -webkit-transform: translate3d(100%, 0, 0)
+    transform: translate3d(100%, 0, 0)
+
+

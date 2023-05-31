@@ -1,0 +1,27 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+.card
+  border-radius: lb.$vt-borders-border-radius
+  background-color: lb.$vt-palette-white
+  box-sizing: border-box
+
+  &-shadow
+    box-shadow: $box-shadow
+
+  &-border
+    border: 1px solid map.get(lb.$vt-palette-neutral-palette, 40)
+
+  &-hover
+    &:hover
+      box-shadow: $box-shadow
+
+  &-focus
+    &:focus
+      border: 1px solid lb.$vt-palette-secondary
+
+  &-disabled
+    pointer-events: none
+    opacity: .5
+    transition: opacity .2s

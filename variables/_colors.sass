@@ -1,0 +1,14 @@
+@use "sass:map"
+@use "src/sass/library" as lb
+@use "src/sass/library.theme"
+
+@import "../functions/utilities"
+
+//COLOR MAP
+$gray-colors-map: ("white": lb.$vt-palette-white, "light": map.get(lb.$vt-palette-neutral-palette, 10), "light-gray": map.get(lb.$vt-palette-neutral-palette, 20), "gray": map.get(lb.$vt-palette-neutral-palette, 40), "dark-gray": map.get(lb.$vt-palette-neutral-palette, 60), "dark": map.get(lb.$vt-palette-neutral-palette, 80), "black": map.get(lb.$vt-palette-neutral-palette, 100))
+$ui-colors-map: ("success": lb.$vt-palette-success, "warning": lb.$vt-palette-warning, "danger": lb.$vt-palette-error)
+
+$brand-theme-map: ("primary": lb.$vt-palette-primary, "secondary": lb.$vt-palette-secondary, "tertiary": lb.$vt-palette-tertiary, "quaternary": lb.$vt-palette-quaternary, "quinary": lb.$vt-palette-quinary)
+
+$colors: map-collect($gray-colors-map, $ui-colors-map)
+$theme-colors: map-collect($brand-theme-map, $gray-colors-map, $ui-colors-map)
